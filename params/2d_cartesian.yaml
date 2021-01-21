@@ -1,0 +1,55 @@
+input_data_filename: "byrd-data.pickle"
+
+mode: "pinn"
+
+wandb_project: "igarss2021"
+
+n_random_points: 500000
+
+learning_rate: 0.0002
+
+radar_loss_weight: 1
+velocity_loss_weight: 1
+model_loss_weight: 1
+negative_thickness_loss_weight: 10000
+thickness_smoothing_loss_weight: 0
+velocity_smoothing_loss_weight: 0
+velocity_ratio_smoothing_loss_weight: 0
+
+smoothing_norm_type: 2
+
+velocity_error_allowed: 50
+allow_higher_depth_averaged_velocity: True
+
+generator_width: 512
+generator_layers: 4
+generator_activation: 'tanh'
+
+batch_size: 2048
+epochs: 100
+
+eval_regions:
+ - x0: 400000
+   x1: 500000
+   y0: -900000
+   y1: -800000
+   spacing: 200
+   title: 'region_A'
+ - x0: 590000
+   x1: 630000
+   y0: -890000
+   y1: -850000
+   spacing: 200
+   title: 'region_B'
+ - x0: 550000
+   x1: 590000
+   y0: -710000
+   y1: -670000
+   spacing: 200
+   title: 'region_C'
+ - x0: 350500
+   x1: 749500
+   y0: -999500
+   y1: -600500
+   spacing: 500
+   title: 'domain'

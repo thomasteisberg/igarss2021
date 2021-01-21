@@ -1,0 +1,36 @@
+input_data_filename: "synthetic-1d.pickle"
+
+mode: "pinn"
+is_1d: True
+
+visualize_every_n_epochs: 10
+wandb_project: "igarss2021"
+
+n_random_points: 500
+
+learning_rate: 0.0005
+
+radar_loss_weight: 1
+velocity_loss_weight: 1
+model_loss_weight: 0
+variogram_loss_weight: 0
+negative_thickness_loss_weight: 10000
+thickness_smoothing_loss_weight: 0
+
+smoothing_norm_type: 2
+
+velocity_error_allowed: 0
+
+generator_width: 512
+generator_layers: 4
+generator_activation: 'relu'
+
+batch_size: 10000
+epochs: 500
+
+eval_regions:
+  - x0: 0
+    x1: 20000
+    1d: True
+    spacing: 500
+    title: 'domain-synthetic-1d'

@@ -1,0 +1,113 @@
+input_data_filename: "byrd-data.pickle"
+
+mode: "pinn"
+
+wandb_project: "igarss2021"
+
+bayesian: False
+bayesian_visualization_stochastic_passes: 10
+
+n_random_points: 500000
+
+learning_rate: 0.0002
+
+radar_loss_weight: 1
+velocity_loss_weight: 0
+model_loss_weight: 1
+variogram_loss_weight: 0
+negative_thickness_loss_weight: 10000
+thickness_smoothing_loss_weight: 0
+velocity_smoothing_loss_weight: 0
+velocity_diff_smoothing_loss_weight: 10
+velocity_ang_data_loss_weight: 10
+velocity_mag_data_loss_weight: 10
+
+predict_surface_velocity: True
+surface_velocity_data_loss_weight: 100
+
+smoothing_norm_type: 2
+
+enable_variogram_loss: False
+variogram_max_displacement_m: 60000
+variogram_bin_spacing_m: 10000
+variogram_n_samples_baseline: 8000
+variogram_n_divisions: 2
+
+velocity_error_allowed: 50
+allow_higher_depth_averaged_velocity: False
+
+generator_width: 512
+generator_layers: 4
+generator_activation: 'tanh'
+
+critic_width: 256
+critic_layers: 3
+critic_activation: 'relu'
+critic_train_iters: 15
+critic_feature_length: 300
+critic_gp_weight: 10.0
+
+batch_size: 2048
+epochs: 100
+
+#random_vec_length: 6
+
+eval_regions:
+  #  - x0: 475000
+  #    x1: 575000
+  #    y0: -860000
+  #    y1: -760000
+  #    spacing: 200
+  #    title: 'mini-byrd 1'
+ - x0: 400000
+   x1: 500000
+   y0: -900000
+   y1: -800000
+   spacing: 200
+   title: 'region_A'
+   plot_variogram: True
+ - x0: 590000
+   x1: 630000
+   y0: -890000
+   y1: -850000
+   spacing: 200
+   title: 'region_B'
+   plot_variogram: True
+ - x0: 550000
+   x1: 590000
+   y0: -710000
+   y1: -670000
+   spacing: 200
+   title: 'region_C'
+   plot_variogram: True
+ # - x0: 350500
+ #   x1: 749500
+ #   y0: -999500
+ #   y1: -600500
+ #   spacing: 450
+ #   title: 'domain'
+ - x0: 380000
+   x1: 400000
+   y0: -985000
+   y1: -965000
+   spacing: 100
+   title: 'crossover-stream1'
+ - x0: 410000
+   x1: 430000
+   y0: -942000
+   y1: -922000
+   spacing: 100
+   title: 'crossover-stream2'
+ - x0: 445000
+   x1: 475000
+   y0: -875000
+   y1: -845000
+   spacing: 100
+   title: 'crossover-hv1'
+ - x0: 350500
+   x1: 749500
+   y0: -999500
+   y1: -600500
+   spacing: 500
+   title: 'domain'
+   plot_variogram: True
